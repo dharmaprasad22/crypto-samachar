@@ -43,7 +43,7 @@ const Carousel = () => {
 
         setTrending(data);
     }
-    console.log(trending)
+    //console.log(trending)
     useEffect(() => {
         fetchTrendingCoins();
 
