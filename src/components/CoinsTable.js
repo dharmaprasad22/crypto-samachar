@@ -19,7 +19,7 @@ import {
 import axios from "axios";
 import { CoinList } from "../config/api";
 
-import { useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import { CryptoState } from "../CryptoContext";
 
 export function numberWithCommas(x) {
@@ -27,10 +27,10 @@ export function numberWithCommas(x) {
 }
 
 export default function CoinsTable() {
-  const [coins, setCoins] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [search, setSearch] = useState("");
-  const [page, setPage] = useState(1);
+  const [coins, setCoins] = useState([])
+  const [loading, setLoading] = useState(false)
+  const [search, setSearch] = useState("")
+  const [page, setPage] = useState(1)
 
   const { currency, symbol } = CryptoState();
 
@@ -40,7 +40,7 @@ export default function CoinsTable() {
       cursor: "pointer",
       "&:hover": {
         backgroundColor: "#131111",
-      },
+      },        
       fontFamily: "Montserrat",
     },
     pagination: {
@@ -51,7 +51,8 @@ export default function CoinsTable() {
   });
 
   const classes = useStyles();
-  const history = useNavigate();
+  const navigate = useNavigate();
+  
 
   const darkTheme = createTheme({
     palette: {
@@ -129,7 +130,7 @@ export default function CoinsTable() {
                     const profit = row.price_change_percentage_24h > 0;
                     return (
                       <TableRow
-                        onClick={() => history.push(`/coins/${row.id}`)}
+                        onClick={() => navigate(`/coins/${row.id}`)}
                         className={classes.row}
                         key={row.name}
                       >
