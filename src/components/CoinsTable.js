@@ -193,7 +193,7 @@ export default function CoinsTable() {
           )}
         </TableContainer>
 
-        {/* Comes from @material-ui/lab */}
+        
         <Pagination
           count={(handleSearch()?.length / 10).toFixed(0)}
           style={{
@@ -201,6 +201,7 @@ export default function CoinsTable() {
             width: "100%",
             display: "flex",
             justifyContent: "center",
+            //alignItems:"center",
           }}
           classes={{ ul: classes.pagination }}
           onChange={(_, value) => {
