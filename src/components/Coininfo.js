@@ -1,6 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const Coininfo = () => {
+  const [Historicaldata,setHistoricaldata] = useState()
+
+  
+
   return (
     <div>Coininfo</div>
   )
