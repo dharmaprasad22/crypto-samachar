@@ -4,6 +4,7 @@ import './App.css';
 import Home from "./pages/Home";
 import Coinpage from "./pages/Coinpage";
 import { makeStyles } from "@material-ui/core"
+import Alert from "./components/Alert";
 
 
 
@@ -31,6 +32,7 @@ function App() {
           <Route path="/coins/:id" element={<Coinpage/>} />
         </Routes>
       </div>
+      <Alert/>
     </BrowserRouter>
   )
 }
