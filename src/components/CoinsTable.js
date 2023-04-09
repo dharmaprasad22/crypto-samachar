@@ -27,11 +27,12 @@ export function numberWithCommas(x) {
 }
 
 export default function CoinsTable() {
-
+  const [coins, setCoins] = useState([])
+  const [loading, setLoading] = useState(false)
   const [search, setSearch] = useState("")
   const [page, setPage] = useState(1)
 
-  const { currency, symbol,coins,loading,fetchCoins } = CryptoState();
+  const { currency, symbol } = CryptoState();
 
   const useStyles = makeStyles({
     row: {
@@ -62,7 +63,14 @@ export default function CoinsTable() {
     },
   });
 
- 
+  const fetchCoins = async () => {
+    setLoading(true);
+    const { data } = await axios.get(CoinList(currency));
+    // console.log(data);
+
+    setCoins(data);
+    setLoading(false);
+  };
 
   useEffect(() => {
     fetchCoins();
@@ -121,7 +129,7 @@ export default function CoinsTable() {
                   .map((row) => {
                     const profit = row.price_change_percentage_24h > 0;
                     return (
-                      <TableRow 
+                      <TableRow
                         onClick={() => navigate(`/coins/${row.id}`)}
                         className={classes.row}
                         key={row.name}
@@ -156,7 +164,7 @@ export default function CoinsTable() {
                             </span>
                           </div>
                         </TableCell>
-                        <TableCell align="right">
+                        <TableCell align="right" >
                           {symbol}{" "}
                           {numberWithCommas(row.current_price.toFixed(2))}
                         </TableCell>
@@ -187,20 +195,21 @@ export default function CoinsTable() {
 
         
         <Pagination
-          count={(handleSearch()?.length / 10).toFixed(0)}
-          style={{
-            padding: 20,
-            width: "100%",
-            display: "flex",
-            justifyContent: "center",
-            //alignItems:"center",
-          }}
-          classes={{ ul: classes.pagination }}
-          onChange={(_, value) => {
-            setPage(value);
-            window.scroll(0, 450);
-          }}
-        />
+  count={parseInt(handleSearch().length / 10)}
+  style={{
+    padding: 20,
+    width: "100%",
+    display: "flex",
+    justifyContent: "center",
+  }}
+  classes={{ ul: classes.pagination }}
+  onChange={(_, value) => {
+    setPage(value);
+    window.scroll(0, 450);
+  }}
+/>
+
+
       </Container>
     </ThemeProvider>
   );

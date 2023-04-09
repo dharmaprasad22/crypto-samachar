@@ -48,7 +48,13 @@ const Header = () => {
         <Container>
             <Toolbar>
                 <Typography onClick={() => navigate("/")} className={classes.title}
-                variant='h5'>
+                variant='h5'
+                style={{
+                    fontWeight:'bold',
+                   
+                    fontFamily:"Montserrat",
+                       
+                  }}>
                     CRYPTO SAMACHAR
                 </Typography>
 

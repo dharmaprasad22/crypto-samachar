@@ -51,16 +51,23 @@ const Signup = ({ handleClose }) => {
         display: "flex",
         flexDirection: "column",
         gap: "20px",
+       
       }}
     >
       <TextField
-        variant="outlined"
-        type="email"
-        label="Enter Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        fullWidth
-      />
+  variant="outlined"
+  type="email"
+  label="Enter Email"
+  value={email}
+  onChange={(e) => setEmail(e.target.value)}
+  fullWidth
+  InputLabelProps={{
+    style: {
+      color: "white"
+    }
+  }}
+/>
+
       <TextField
         variant="outlined"
         label="Enter Password"
@@ -68,6 +75,11 @@ const Signup = ({ handleClose }) => {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         fullWidth
+        InputLabelProps={{
+          style: {
+            color: "white"
+          }
+        }}
       />
       <TextField
         variant="outlined"
@@ -76,6 +88,11 @@ const Signup = ({ handleClose }) => {
         value={confirmPassword}
         onChange={(e) => setConfirmPassword(e.target.value)}
         fullWidth
+        InputLabelProps={{
+          style: {
+            color: "white"
+          }
+        }}
       />
       <Button
         variant="contained"

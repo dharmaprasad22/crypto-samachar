@@ -19,7 +19,10 @@ import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
   },
   paper: {
     width: 400,
-    backgroundColor: theme.palette.background.paper,
+    backgroundColor: "rgba(25,25,25,.9)",
+    // backgroundColor: "#14161a",
+    boxShadow:"0 5px 15px rgba(0,0,0,0.5)",
+   
     color: "white",
     borderRadius: 10,
   },
