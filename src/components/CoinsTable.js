@@ -77,14 +77,22 @@ export default function CoinsTable() {
     
   }, [currency]);
 
+  // const handleSearch = () => {
+  //   return coins.filter(
+  //     (coin) =>
+  //       coin.name.toLowerCase().includes(search) ||
+  //       coin.symbol.toLowerCase().includes(search)
+  //   );
+  // };
+
   const handleSearch = () => {
     return coins.filter(
       (coin) =>
-        coin.name.toLowerCase().includes(search) ||
-        coin.symbol.toLowerCase().includes(search)
+        coin.name.toLowerCase().includes(search.toLowerCase()) ||
+        coin.symbol.toLowerCase().includes(search.toLowerCase())
     );
   };
-
+  
   return (
     <ThemeProvider theme={darkTheme}>
       <Container style={{ textAlign: "center" }}>
