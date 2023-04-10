@@ -1,5 +1,6 @@
 {
   "name": "crypto-samachar",
+  "homepage": "https://dharmaprasad22.github.io/crypto-samachar",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -16,7 +17,9 @@
     "axios": "^1.3.4",
     "buffer": "^6.0.3",
     "chart.js": "^4.2.1",
+    "env-cmd": "^10.1.0",
     "firebase": "^9.19.1",
+    "gh-pages": "^5.0.0",
     "react": "^17.0.2",
     "react-alice-carousel": "^2.7.0",
     "react-chartjs-2": "^5.2.0",
@@ -29,6 +32,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
